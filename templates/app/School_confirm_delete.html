@@ -1,0 +1,19 @@
+{% extends 'app/dummy.html' %}
+
+
+{% block title  %}
+        <title>Delete page</title>
+{% endblock %}
+
+
+{% block body_block %}
+
+<h1>Are You Sure to delete {{schoolobject.Sname}}?</h1>
+<form  method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes-Delete" class="btn btn-success"><br><br>
+</form>
+    <a href="{% url 'SchoolList' %}" class="btn btn-secondary">No take me back to SchoolList</a>
+    <a href="{% url 'detail'  pk=schoolobject.pk %}" class="btn btn-secondary">No take me back to details</a>
+
+{% endblock %}
